@@ -1,12 +1,12 @@
 python ../train_hair_removal.py \
   --file_prefix='l1' \
   --experiment_count=1 \
-  --dir_output='/home/dahye/2020summer/2020summer-proj/hair_removal/result' \
+  --dir_output='/content/imagelab_cau_2020_summer_proj/hair_removal/result' \
   --sample_interval=4 \
   --num_plot_img=4 \
   --dir_train_data_image='/home01/kaggle/jpeg/train' \
-  --dir_data_csv_hair='/home01/kaggle/train_hair.csv' \
-  --dir_data_csv_non_hair='/home01/kaggle/train_non_hair.csv' \
+  --dir_data_csv_hair='/content/gdrive/My Drive/ISIC-melanoma/hair_labeling/train_hair.csv' \
+  --dir_data_csv_non_hair='/content/gdrive/My Drive/ISIC-melanoma/hair_labeling/train_non_hair.csv' \
   --image_format='jpg' \
   --height=128 \
   --width=128 \
