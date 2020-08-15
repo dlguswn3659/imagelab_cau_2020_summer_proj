@@ -1,7 +1,7 @@
 python ../train_hair_removal.py \
   --file_prefix='l1' \
   --experiment_count=1 \
-  --dir_output='/root/imagelab_cau_2020_summer_proj/hair_removal/result' \
+  --dir_output='/content/imagelab_cau_2020_summer_proj/hair_removal/result' \
   --sample_interval=4 \
   --num_plot_img=4 \
   --dir_train_data_image='/content/gdrive/My Drive/kaggle/jpeg' \
