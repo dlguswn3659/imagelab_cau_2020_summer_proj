@@ -15,7 +15,7 @@ python ../train_hair_removal.py \
   --num_out_channel=3 \
   --network_d='vgg' \
   --network_g='vgg' \
-  --num_workers=16 \
+  --num_workers=0 \
   --multi_gpu=False \
   --num_gpu=1 \
   --cuda_id='cuda:0' \
