@@ -4,7 +4,7 @@ python ../train_hair_removal.py \
   --dir_output='/content/imagelab_cau_2020_summer_proj/hair_removal/result' \
   --sample_interval=4 \
   --num_plot_img=4 \
-  --dir_train_data_image='/content/gdrive/My Drive/kaggle/jpeg' \
+  --dir_train_data_image='/content/gdrive/My Drive/train' \
   --dir_data_csv_hair='/content/gdrive/My Drive/ISIC-melanoma/hair_labeling/train_hair.csv' \
   --dir_data_csv_non_hair='/content/gdrive/My Drive/ISIC-melanoma/hair_labeling/train_non_hair.csv' \
   --image_format='jpg' \
