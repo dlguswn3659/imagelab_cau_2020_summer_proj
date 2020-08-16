@@ -245,7 +245,7 @@ else:
 if network_d == 'resnet':
     pass # to be implemented
 elif network_d =='vgg':
-    model_d = discriminator.CNNDiscriminator().to(device)
+    model_d = discriminator.CNNDiscriminator(height, width).to(device)
 else:
     raise ValueError('There is no such discriminator model')
 
