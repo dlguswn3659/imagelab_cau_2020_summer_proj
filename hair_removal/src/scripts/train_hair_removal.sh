@@ -2,7 +2,7 @@ python ../train_hair_removal.py \
   --file_prefix='l1' \
   --experiment_count=1 \
   --dir_output='/content/imagelab_cau_2020_summer_proj/hair_removal/result' \
-  --sample_interval=4 \
+  --sample_interval=100 \
   --num_plot_img=4 \
   --dir_train_data_image='/content/gdrive/My Drive/train' \
   --dir_data_csv_hair='/content/gdrive/My Drive/ISIC-melanoma/hair_labeling/train_hair.csv' \
@@ -21,9 +21,9 @@ python ../train_hair_removal.py \
   --cuda_id='cuda:0' \
   --lambda_gp=10 \
   --lambda_distance=1 \
-  --num_epoch=10000 \
-  --train_batch_size=4 \
-  --test_batch_size=4 \
+  --num_epoch=300 \
+  --train_batch_size=32 \
+  --test_batch_size=32 \
   --lr_d=0.0001 \
   --lr_g=0.0001 \
   --beta1_d=0.5 \
