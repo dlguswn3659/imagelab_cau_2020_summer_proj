@@ -1,5 +1,5 @@
 python ../train_hair_removal.py \
-  --file_prefix='l1' \
+  --file_prefix='l1' \ 
   --experiment_count=1 \
   --dir_output='/content/imagelab_cau_2020_summer_proj/hair_removal/result' \
   --sample_interval=100 \
