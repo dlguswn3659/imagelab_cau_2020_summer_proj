@@ -310,23 +310,7 @@ with open(txt_train_info, 'a') as t:
     t.write('[*] num of params: {}'.format(utils.count_parameters(model_g)) + os.linesep)
     t.write('[*] model structure: {}'.format(model_g) + os.linesep)
 
-# ==================================
-#      data load 2
-# ==================================
 
-dataloader_iterator = iter(loader_non_hair)
-
-for i, data_hair in enumerate(loader_train_hair, 0):
-
-    # iterate dataloader_input at the same time
-    try:
-        data_non_hair = next(dataloader_iterator)
-    except StopIteration:
-        dataloader_iterator = iter(loader_non_hair)
-        data_non_hair = next(dataloader_iterator)
-
-    imgs_non_hair = Variable(data_non_hair['image'].type(Tensor)).to(device)
-    imgs_hair = Variable(data_hair['image'].type(Tensor)).to(device)
 
 # ==================================================
 #      Init variables to save training results
@@ -358,14 +342,14 @@ for epoch in range(num_epoch):
     for i, data_hair in enumerate(loader_train_hair, 0):
 
         # iterate dataloader_input at the same time
-#         try:
-#             data_non_hair = next(dataloader_iterator)
-#         except StopIteration:
-#             dataloader_iterator = iter(loader_non_hair)
-#             data_non_hair = next(dataloader_iterator)
+        try:
+            data_non_hair = next(dataloader_iterator)
+        except StopIteration:
+            dataloader_iterator = iter(loader_non_hair)
+            data_non_hair = next(dataloader_iterator)
 
-#         imgs_non_hair = Variable(data_non_hair['image'].type(Tensor)).to(device)
-#         imgs_hair = Variable(data_hair['image'].type(Tensor)).to(device)
+        imgs_non_hair = Variable(data_non_hair['image'].type(Tensor)).to(device)
+        imgs_hair = Variable(data_hair['image'].type(Tensor)).to(device)
 
 
         # -------------------------------
