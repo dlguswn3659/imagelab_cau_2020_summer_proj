@@ -314,6 +314,8 @@ with open(txt_train_info, 'a') as t:
 #      data load 2
 # ==================================
 
+dataloader_iterator = iter(loader_non_hair)
+
 for i, data_hair in enumerate(loader_train_hair, 0):
 
     # iterate dataloader_input at the same time
