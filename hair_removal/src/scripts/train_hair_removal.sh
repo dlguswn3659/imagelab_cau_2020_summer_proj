@@ -18,7 +18,7 @@ python ../train_hair_removal.py \
   --num_workers=0 \
   --multi_gpu=False \
   --num_gpu=1 \
-  --cuda_id='cuda:0' \
+  --cuda_id='cuda:1' \
   --lambda_gp=10 \
   --lambda_distance=1 \
   --num_epoch=500 \
