@@ -338,7 +338,7 @@ losses_distance = []
 # ==============================
 time_total_start = time() # set a start time to monitor training time
 for epoch in range(num_epoch):
-time_train_epoch_start = time() # set an epoch start time to monitor training time per epoch
+    time_train_epoch_start = time() # set an epoch start time to monitor training time per epoch
     if epoch == 0:
         print('device:', device)
     print("start train epoch{}:".format(epoch))
