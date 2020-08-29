@@ -310,7 +310,21 @@ with open(txt_train_info, 'a') as t:
     t.write('[*] num of params: {}'.format(utils.count_parameters(model_g)) + os.linesep)
     t.write('[*] model structure: {}'.format(model_g) + os.linesep)
 
+# ==================================
+#      data load 2
+# ==================================
 
+for i, data_hair in enumerate(loader_train_hair, 0):
+
+    # iterate dataloader_input at the same time
+    try:
+        data_non_hair = next(dataloader_iterator)
+    except StopIteration:
+        dataloader_iterator = iter(loader_non_hair)
+        data_non_hair = next(dataloader_iterator)
+
+    imgs_non_hair = Variable(data_non_hair['image'].type(Tensor)).to(device)
+    imgs_hair = Variable(data_hair['image'].type(Tensor)).to(device)
 
 # ==================================================
 #      Init variables to save training results
@@ -320,44 +334,15 @@ losses_g = []
 losses_distance = []
 
 # ==============================
-#         data collecting
-# ==============================
-
-print('device:', device)
-print("start train epoch{}:".format(epoch))
-dataloader_iterator = iter(loader_non_hair)
-
-num_iters_d = 0
-num_iters_g = 0
-
-# ================================================
-#                     Train
-# ================================================
-# model_d.train()
-# model_g.train()
-
-for i, data_hair in enumerate(loader_train_hair, 0):
-  try:
-    data_non_hair = next(dataloader_iterator)
-  except StopIteration:
-    dataloader_iterator = iter(loader_non_hair)
-    data_non_hair = next(dataloader_iterator)
-    
-  imgs_non_hair = Variable(data_non_hair['image'].type(Tensor)).to(device)
-  imgs_hair = Variable(data_hair['image'].type(Tensor)).to(device)
-
-
-
-# ==============================
 #         Start Training
 # ==============================
 time_total_start = time() # set a start time to monitor training time
 for epoch in range(num_epoch):
-    time_train_epoch_start = time() # set an epoch start time to monitor training time per epoch
-#     if epoch == 0:
-#         print('device:', device)
-#     print("start train epoch{}:".format(epoch))
-#     dataloader_iterator = iter(loader_non_hair)
+time_train_epoch_start = time() # set an epoch start time to monitor training time per epoch
+    if epoch == 0:
+        print('device:', device)
+    print("start train epoch{}:".format(epoch))
+    dataloader_iterator = iter(loader_non_hair)
 
     num_iters_d = 0
     num_iters_g = 0
@@ -368,9 +353,9 @@ for epoch in range(num_epoch):
     model_d.train()
     model_g.train()
 
-#     for i, data_hair in enumerate(loader_train_hair, 0):
+    for i, data_hair in enumerate(loader_train_hair, 0):
 
-#         # iterate dataloader_input at the same time
+        # iterate dataloader_input at the same time
 #         try:
 #             data_non_hair = next(dataloader_iterator)
 #         except StopIteration:
