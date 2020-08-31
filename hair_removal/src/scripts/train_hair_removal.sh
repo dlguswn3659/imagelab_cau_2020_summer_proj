@@ -24,7 +24,7 @@ python ../train_hair_removal.py \
   --num_epoch=500 \
   --train_batch_size=8 \
   --test_batch_size=8 \
-  --lr_d=0.0001 \
+  --lr_d=0.0001 \ 
   --lr_g=0.0001 \
   --beta1_d=0.5 \
   --beta1_g=0.5 \
